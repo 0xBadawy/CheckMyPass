@@ -54,24 +54,34 @@ export const specialCheck = (value) => {
   return special;
 };
 
-export const seqanceCheck = (value) => {
-  let seq = 0,
-    deg = 0;
-  if (!value.length) return 0;
-  for (let i = 0; i < value.length - 1; i++) {
-    if (
-      value[i].charCodeAt(0) === value[i + 1].charCodeAt(0) - 1 ||
-      value[i].charCodeAt(0) === value[i + 1].charCodeAt(0) ||
-      value[i].charCodeAt(0) === value[i + 1].charCodeAt(0) + 1
-    )
-      seq += 1;
-  }
-  if (seq > 8) deg = 0;
-  else if (seq > 6) deg = 2;
-  else if (seq > 3) deg = 4;
+export const sequenceCheck = (value) => {
+  if (!value || value.length < 2) return 0; // Return 0 for empty or single-character strings
 
-  return deg;
+  let seqCount = 0;
+
+  for (let i = 0; i < value.length - 1; i++) {
+    const diff = Math.abs(value[i].charCodeAt(0) - value[i + 1].charCodeAt(0));
+
+    // Check if characters are consecutive or identical
+    if (diff <= 1) {
+      seqCount++;
+    }
+  }
+
+  // Calculate percentage based on the sequence length relative to the total length
+  const percentage = (seqCount / (value.length - 1)) * 100;
+console.log("percentage", percentage);
+  // Map percentage to a degree value (0 to 4)
+  if (percentage >= 80) return 0; // Very high sequence, minimal randomness
+  if (percentage >= 60) return 1; // High sequence
+  if (percentage >= 40) return 2; // Moderate sequence
+  if (percentage >= 20) return 3; // Low sequence
+
+  return 4; // Minimal sequence, high randomness
 };
+
+
+
 
 export const entropyCheck = (value) => {
   let entropy = calculateEntropy(value);
@@ -115,7 +125,7 @@ export const entropyStatics = (value) => {
 export const passwordStrength = (value) => {
   const length = lengthCheck(value) * 25;
   const type = typeCheck(value) * 25;
-  const seq = seqanceCheck(value) * 25;
+  const seq = sequenceCheck(value) * 25;
   const entropyCheckValue = entropyCheck(value);
   const strength = (entropyCheckValue + 2) * 25;
   // console.log(length, type, seq, strength, entropyCheckValue);

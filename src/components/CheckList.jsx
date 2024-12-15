@@ -4,10 +4,11 @@ import { IoCloseCircle } from "react-icons/io5";
 import {
   capitalCheck,
   numberCheck,
-  seqanceCheck,
+  sequenceCheck,
   smallCheck,
   specialCheck,
 } from "../functions/functions";
+
 
 const CheckList = ({ value }) => {
   const [length, setLength] = useState({ leg: 0, strong: 0 });
@@ -22,11 +23,18 @@ const CheckList = ({ value }) => {
     setSmall(smallCheck(value));
     setNumber(numberCheck(value));
     setSpecial(specialCheck(value));
-    setSeq(seqanceCheck(value));
+    setSeq(sequenceCheck(value));
 
     setLength({ leg: value.length, strong: value.length < 8 ? -1 : 1 });
   }, [value]);
-
+    const clac = (persentage) => {
+      console.log(persentage);
+    if (persentage < 30) return -3;
+    else if (persentage < 50) return 0;
+    else if (persentage < 70) return 0;
+    else if (persentage < 90) return 3;
+    else return 4;
+  };
   const checkListItems = [
     {
       label: "يجب أن تحتوي كلمة المرور على طول مناسب",
@@ -37,7 +45,11 @@ const CheckList = ({ value }) => {
     { label: "يجب أن تحتوي على حروف صغيرة", value: small, check: small },
     { label: "يجب أن تحتوي على أرقام", value: number, check: number },
     { label: "يجب أن تحتوي على رموز خاصة", value: special, check: special },
-    { label: "يجب ألا تحتوي على تسلسل غير آمن", value: seq, check: seq },
+    {
+      label: "يجب ألا تحتوي على تسلسل غير آمن",
+      value: seq * 25,
+      check: clac(seq * 25),
+    },
   ];
 
   return (
@@ -68,9 +80,9 @@ const Check = (strong = 0) => {
       <IoIosCheckmarkCircle size={18} className="text-green-600 text-3xl" />
     );
   } else if (strong === 0) {
-    return <IoIosWarning size={18}  className="text-yellow-600 text-3xl" />;
+    return <IoIosWarning size={18} className="text-yellow-600 text-3xl" />;
   } else {
-    return <IoCloseCircle  size={18} className="text-red-600 text-3xl" />;
+    return <IoCloseCircle size={18} className="text-red-600 text-3xl" />;
   }
 };
 
