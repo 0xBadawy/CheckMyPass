@@ -1,7 +1,5 @@
 export const lenghtCheck = (value) => {
-  if (value.length < 8) return 0;
-  else if (value.length < 11) return 1;
-  else return 2;
+  return value.length;
 };
 
 export const typeCheck = (value) => {
@@ -17,6 +15,42 @@ export const typeCheck = (value) => {
   }
   return capital + small + number + special;
 };
+
+export const capitalCheck = (value) => {
+    let capital = 0;
+    for (let i = 0; i < value.length; i++) {
+        if (value[i] >= "A" && value[i] <= "Z") capital += 1;
+    }
+    return capital;
+}
+    
+export const smallCheck = (value) => {
+    let small = 0;
+    for (let i = 0; i < value.length; i++) {
+        if (value[i] >= "a" && value[i] <= "z") small += 1;
+    }
+    return small;
+}
+
+export const numberCheck = (value) => {
+    let number = 0;
+    for (let i = 0; i < value.length; i++) {
+        if (value[i] >= "0" && value[i] <= "9") number += 1;
+    }
+    return number;
+}
+
+export const specialCheck = (value) => {
+  let special = 0;
+  for (let i = 0; i < value.length; i++) {
+    if (!/[A-Za-z0-9]/.test(value[i])) {
+      special += 1;
+    }
+  }
+  return special;
+};
+
+
 
 export const seqanceCheck = (value) => {
   let seq = 0,
@@ -47,7 +81,7 @@ export const calculateEntropy = (value) => {
     else special = 32;
   }
   const entropy = Math.log2(capital + small + number + special) * value.length;
-  console.log("entropy ", entropy);
+//   console.log("entropy ", entropy);
   return entropy;
 };
 
@@ -59,5 +93,3 @@ export const entropyCheck = (value) => {
   else if (entropy < 80) return 1;
   else return 2;
 };
-
-

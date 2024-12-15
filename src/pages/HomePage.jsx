@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import InputField from "../components/InputField";
 import ProgressBar from "../components/ProgressBar";
 import { entropyCheck, seqanceCheck } from "../functions/functions";
+import CheckList from "../components/CheckList";
 
 const HomePage = () => {
   const [inputValue, setInputValue] = useState("");
@@ -26,7 +27,9 @@ const HomePage = () => {
           />
           <ProgressBar progress={60} />
         </div>
-        <div className="bg-red-100">one</div>
+        <div className="bg-red-100">
+          <CheckList value={inputValue} />
+        </div>
       </div>
     </>
   );
