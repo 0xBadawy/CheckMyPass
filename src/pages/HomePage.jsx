@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import InputField from "../components/InputField";
 import ProgressBar from "../components/ProgressBar";
-import { entropyCheck, calculateEntropy, entropyStatics } from "../functions/functions";
+import { entropyCheck, calculateEntropy, entropyStatics, passwordStrength } from "../functions/functions";
 import CheckList from "../components/CheckList";
 import EntropyDisplay from "../components/EntropyDisplay";
 
@@ -16,8 +16,8 @@ const HomePage = () => {
     setEntropy(entropyValue);
     const statics = entropyStatics(inputValue);
     setEntropyStatic(statics);
-    const entropyCheckValue = entropyCheck(inputValue);
-    setStrength((entropyCheckValue + 2) * 25); // Convert -2 to 2 range to 0 to 100
+    const entropyCheckValue = passwordStrength(inputValue);
+    setStrength(entropyCheckValue); // Convert -2 to 2 range to 0 to 100
   }, [inputValue]);
 
   return (
