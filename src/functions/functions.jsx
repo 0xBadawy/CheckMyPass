@@ -56,8 +56,8 @@ export const specialCheck = (value) => {
 
 export const seqanceCheck = (value) => {
   let seq = 0,
-      deg = 0;
-    if(!value.length)return 0
+    deg = 0;
+  if (!value.length) return 0;
   for (let i = 0; i < value.length - 1; i++) {
     if (
       value[i].charCodeAt(0) === value[i + 1].charCodeAt(0) - 1 ||
@@ -69,13 +69,13 @@ export const seqanceCheck = (value) => {
   if (seq > 8) deg = 0;
   else if (seq > 6) deg = 2;
   else if (seq > 3) deg = 4;
-  
+
   return deg;
 };
 
 export const entropyCheck = (value) => {
-    let entropy = calculateEntropy(value);
-     if (!entropy ) return -2;
+  let entropy = calculateEntropy(value);
+  if (!entropy) return -2;
   if (entropy < 28) return -2;
   else if (entropy < 40) return -1;
   else if (entropy < 60) return 0;
@@ -117,8 +117,8 @@ export const passwordStrength = (value) => {
   const type = typeCheck(value) * 25;
   const seq = seqanceCheck(value) * 25;
   const entropyCheckValue = entropyCheck(value);
-    const strength = (entropyCheckValue + 2) * 25;
-    console.log(length, type, seq, strength, entropyCheckValue);
+  const strength = (entropyCheckValue + 2) * 25;
+  // console.log(length, type, seq, strength, entropyCheckValue);
 
   return (length + type + seq + strength) / 4;
 };
