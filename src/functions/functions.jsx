@@ -69,6 +69,17 @@ export const seqanceCheck = (value) => {
   return deg;
 };
 
+
+export const entropyCheck = (value) => {
+  let entropy = calculateEntropy(value);
+  if (entropy < 28) return -2;
+  else if (entropy < 40) return -1;
+  else if (entropy < 60) return 0;
+  else if (entropy < 80) return 1;
+  else return 2;
+};
+
+
 export const calculateEntropy = (value) => {
   let capital = 0,
     small = 0,
@@ -81,15 +92,20 @@ export const calculateEntropy = (value) => {
     else special = 32;
   }
   const entropy = Math.log2(capital + small + number + special) * value.length;
-//   console.log("entropy ", entropy);
   return entropy;
 };
 
-export const entropyCheck = (value) => {
-  let entropy = calculateEntropy(value);
-  if (entropy < 28) return -2;
-  else if (entropy < 40) return -1;
-  else if (entropy < 60) return 0;
-  else if (entropy < 80) return 1;
-  else return 2;
-};
+export const entropyStatics = (value) => {
+
+    let capital = 0,
+        small = 0,
+        number = 0,
+        special = 0;
+    for (let i = 0; i < value.length; i++) {
+        if (value[i] >= "A" && value[i] <= "Z") capital = 26;
+        else if (value[i] >= "a" && value[i] <= "z") small = 26;
+        else if (value[i] >= "0" && value[i] <= "9") number = 10;
+        else special = 32;
+    }
+    return { capital, small, number, special , length: value.length };
+}
