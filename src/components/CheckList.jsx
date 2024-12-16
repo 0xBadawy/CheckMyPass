@@ -7,8 +7,8 @@ import {
   sequenceCheck,
   smallCheck,
   specialCheck,
+  checkWhiteSpace,
 } from "../functions/functions";
-
 
 const CheckList = ({ value }) => {
   const [length, setLength] = useState({ leg: 0, strong: 0 });
@@ -16,6 +16,7 @@ const CheckList = ({ value }) => {
   const [small, setSmall] = useState(0);
   const [number, setNumber] = useState(0);
   const [special, setSpecial] = useState(0);
+  const [spaces, setSpaces] = useState(0);
   const [seq, setSeq] = useState(0);
 
   useEffect(() => {
@@ -24,17 +25,19 @@ const CheckList = ({ value }) => {
     setNumber(numberCheck(value));
     setSpecial(specialCheck(value));
     setSeq(sequenceCheck(value));
+    setSpaces(value.includes(" ") ? -1 : 1);
 
     setLength({ leg: value.length, strong: value.length < 8 ? -1 : 1 });
   }, [value]);
-    const clac = (persentage) => {
-      console.log(persentage);
+  const clac = (persentage) => {
+    // console.log(persentage);
     if (persentage < 30) return -3;
     else if (persentage < 50) return 0;
     else if (persentage < 70) return 0;
     else if (persentage < 90) return 3;
     else return 4;
   };
+
   const checkListItems = [
     {
       label: "يجب أن تحتوي كلمة المرور على طول مناسب",
@@ -46,6 +49,11 @@ const CheckList = ({ value }) => {
     { label: "يجب أن تحتوي على أرقام", value: number, check: number },
     { label: "يجب أن تحتوي على رموز خاصة", value: special, check: special },
     {
+      label: "يجب أن لا تحتوى على مسافات",
+      value: value.split(" ").length - 1,
+      check: spaces,
+    },
+    {
       label: "يجب ألا تحتوي على تسلسل غير آمن",
       value: seq * 25,
       check: clac(seq * 25),
@@ -53,7 +61,7 @@ const CheckList = ({ value }) => {
   ];
 
   return (
-    <div className="space-y-4 h-full p-4 bg-white ">
+    <div className="space-y-4 h-full p-4 bg-whte ">
       {checkListItems.map((item, index) => (
         <div
           key={index}

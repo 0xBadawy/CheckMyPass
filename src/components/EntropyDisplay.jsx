@@ -21,7 +21,7 @@ const EntropyDisplay = ({ entropy, entropyStatic }) => {
   };
 
   return (
-    <div className="bg-white h-full p-6">
+    <div className="bgwhite h-full p-6">
       <h2 className="text-2xl font-bold mb-4 text-gray-800">قيمة الإنتروبيا</h2>
       <div className="text-6xl font-bold mb-2" style={{ direction: "ltr" }}>
         {entropy ? (
