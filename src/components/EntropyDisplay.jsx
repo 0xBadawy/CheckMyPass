@@ -60,6 +60,7 @@ const EntropyDisplay = ({ entropy, entropyStatic }) => {
         </div>
       ) : (
           
+          
           ""
           
       )}
