@@ -48,9 +48,10 @@ const EntropyDisplay = ({ entropy, entropyStatic }) => {
           <div className="text-lg font-semibold text-gray-800">الأرقام</div>
           <div className="text-lg text-gray-800">{entropyStatic.number}</div>
 
+          
           <div className="text-lg font-semibold text-gray-800">
 
-            
+
             الرموز الخاصة
           </div>
           <div className="text-lg text-gray-800">{entropyStatic.special}</div>
