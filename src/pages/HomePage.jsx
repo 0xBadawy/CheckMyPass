@@ -25,7 +25,7 @@ const HomePage = () => {
     const statics = entropyStatics(inputValue);
     setEntropyStatic(statics);
     const entropyCheckValue = passwordStrength(inputValue);
-    setStrength(entropyCheckValue); // Convert -2 to 2 range to 0 to 100
+    setStrength(entropyCheckValue)
   }, [inputValue]);
 
   return (
@@ -35,18 +35,20 @@ const HomePage = () => {
     >
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold mb-2 text-gray-800">
-          فاحص قوة كلمة المرور💪
+          فاحص قوة كلمة المرور 💪
         </h1>
         <p className="text-xl mt-3 text-gray-600">اجعل كلمة مرورك قوية وآمنة</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 rounded-lg">
+      <div className="grid grid-cols-1  md:grid-cols-3 rounded-lg">
         <div className="bg- white  p-6">
           <InputField
             id="password-input"
             label="أدخل كلمة المرور"
             type="text"
             value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
+            onChange={(e) => {
+              setInputValue(e.target.value);
+            }}
             placeholder="اكتب كلمة المرور هنا"
           />
           <div className="mt-4">

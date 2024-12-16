@@ -29,7 +29,7 @@ const EntropyDisplay = ({ entropy, entropyStatic }) => {
             {entropy.toFixed(2)} bits
           </span>
         ) : (
-          ""
+          "-- bits"
         )}
       </div>
       <p className="text-xl text-gray-600">{getEntropyDescription(entropy)}</p>

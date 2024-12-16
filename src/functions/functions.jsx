@@ -70,10 +70,10 @@ export const sequenceCheck = (value) => {
 
   const percentage = (seqCount / (value.length - 1)) * 100;
   // console.log("percentage", percentage);
-  if (percentage >= 80) return 0; // Very high sequence, minimal randomness
-  if (percentage >= 60) return 1; // High sequence
-  if (percentage >= 40) return 2; // Moderate sequence
-  if (percentage >= 20) return 3; // Low sequence
+  if (percentage >= 80) return 0; 
+  if (percentage >= 60) return 1; 
+  if (percentage >= 40) return 2; 
+  if (percentage >= 20) return 3; 
 
   return 4;
 };
