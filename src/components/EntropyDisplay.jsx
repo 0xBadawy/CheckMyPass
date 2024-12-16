@@ -59,7 +59,8 @@ const EntropyDisplay = ({ entropy, entropyStatic }) => {
           <div className="text-lg text-gray-800">{entropyStatic.length}</div>
         </div>
       ) : (
-        ""
+          ""
+          
       )}
     </div>
   );
