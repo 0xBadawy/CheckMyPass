@@ -43,6 +43,7 @@ const EntropyDisplay = ({ entropy, entropyStatic }) => {
           <div className="text-lg font-semibold text-gray-800">
             الحروف الصغيرة
           </div>
+          
           <div className="text-lg text-gray-800">{entropyStatic.small}</div>
 
           <div className="text-lg font-semibold text-gray-800">الأرقام</div>
