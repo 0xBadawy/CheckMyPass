@@ -8,6 +8,8 @@ export const lengthCheck = (value) => {
   else return 4;
 };
 
+
+
 export const typeCheck = (value) => {
   let capital = 0,
     small = 0,
