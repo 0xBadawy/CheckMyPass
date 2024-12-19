@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Alexandria", sans-serif;
+  /* font-family: "Lalezar", system-ui; */
+}
+
+.gridBG {
+  background-color: #f4f4fb;
+  opacity: 1;
+  background-image: linear-gradient(#b0b1b7 1px, transparent 1px),
+    linear-gradient(to right, #b0b1b7 1px, #f4f4fb 1px);
+  background-size: 20px 20px;
+}
