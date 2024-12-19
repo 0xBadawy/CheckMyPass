@@ -3,6 +3,8 @@
 <h1 style="Font-size:50px;Font-wight:100" > Password Strength Analyzer</h1>
 <a href="https://checkmypass-2a096.web.app/">
     <br>
+</div>
+
 
 This project is a **Password Strength Analyzer** designed to evaluate the strength of passwords based on various factors. It assesses the length, complexity, entropy, and common patterns (such as dictionary words and sequential characters). The tool also provides actionable recommendations for creating stronger passwords.
 
