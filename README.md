@@ -1,3 +1,23 @@
+<div align="center">
+<h1 style="Font-size:50px;Font-wight:100" > Password Strength Analyzer</h1>
+<a href="https://checkmypass-2a096.web.app/">
+    <img height="100" src="./src/assets/5582931.png"><a>
+    <br>
+    <H4>student platform to organize all materials</H4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Password Strength Analyzer ✬✬✬
 
 ## Project Overview
