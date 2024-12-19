@@ -197,6 +197,7 @@ export const enhancePassword = (value) => {
 
   let enhancedPassword = value;
 
+ 
   if (!capitalCheck(value)) {
     enhancedPassword += Capitals[Math.floor(Math.random() * Capitals.length)];
   }
