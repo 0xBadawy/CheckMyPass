@@ -8,8 +8,6 @@ export const lengthCheck = (value) => {
   else return 4;
 };
 
-
-
 export const typeCheck = (value) => {
   let capital = 0,
     small = 0,
@@ -72,10 +70,10 @@ export const sequenceCheck = (value) => {
 
   const percentage = (seqCount / (value.length - 1)) * 100;
   // console.log("percentage", percentage);
-  if (percentage >= 80) return 0; 
-  if (percentage >= 60) return 1; 
-  if (percentage >= 40) return 2; 
-  if (percentage >= 20) return 3; 
+  if (percentage >= 80) return 0;
+  if (percentage >= 60) return 1;
+  if (percentage >= 40) return 2;
+  if (percentage >= 20) return 3;
 
   return 4;
 };
@@ -191,6 +189,36 @@ export const calculateTimePC = (value) => {
   return { years, months, days, hours, minutes, seconds };
 };
 
-export const searchInFile = (searchString) => {
-  const filePath = "../passwords/john-the-ripper.txt";
+export const enhancePassword = (value) => {
+  const Capitals = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const Small = "abcdefghijklmnopqrstuvwxyz";
+  const Numbers = "0123456789";
+  const Specials = "!@#$%";
+
+  let enhancedPassword = value;
+
+  if (!capitalCheck(value)) {
+    enhancedPassword += Capitals[Math.floor(Math.random() * Capitals.length)];
+  }
+  if (!specialCheck(value)) {
+    enhancedPassword += Specials[Math.floor(Math.random() * Specials.length)];
+  }
+  if (!smallCheck(value)) {
+    enhancedPassword += Small[Math.floor(Math.random() * Small.length)];
+  }
+  if (!numberCheck(value)) {
+    enhancedPassword += Numbers[Math.floor(Math.random() * Numbers.length)];
+  }
+
+  const minLength = 13;
+  while (enhancedPassword.length < minLength) {
+    const randomSet = [Capitals, Small, Numbers, Specials];
+    const randomSetChoice =
+      randomSet[Math.floor(Math.random() * randomSet.length)];
+    enhancedPassword +=
+      randomSetChoice[Math.floor(Math.random() * randomSetChoice.length)];
+  }
+
+  console.log("Enhanced Password:", enhancedPassword);
+  return enhancedPassword;
 };

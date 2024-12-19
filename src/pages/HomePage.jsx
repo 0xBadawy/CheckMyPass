@@ -6,15 +6,16 @@ import {
   calculateEntropy,
   entropyStatics,
   passwordStrength,
+  enhancePassword,
 } from "../functions/functions";
 import CheckList from "../components/CheckList";
 import EntropyDisplay from "../components/EntropyDisplay";
 import ApiChecker from "../components/ApiChecker";
 import TimeCheck from "../components/TimeCheck";
-import FileSearch from "../components/FileSearch";
 
 const HomePage = () => {
   const [inputValue, setInputValue] = useState("");
+  const [sugestedPassword, setSugestedPassword] = useState("");
   const [strength, setStrength] = useState(0);
   const [entropy, setEntropy] = useState(0);
   const [entropyStatic, setEntropyStatic] = useState();
@@ -25,7 +26,9 @@ const HomePage = () => {
     const statics = entropyStatics(inputValue);
     setEntropyStatic(statics);
     const entropyCheckValue = passwordStrength(inputValue);
-    setStrength(entropyCheckValue)
+    setStrength(entropyCheckValue);
+
+    setSugestedPassword(enhancePassword(inputValue));
   }, [inputValue]);
 
   return (
@@ -56,8 +59,27 @@ const HomePage = () => {
               قوة كلمة المرور
             </h2>
             <ProgressBar progress={strength} />
+            {strength < 70 && (
+              <div className="mt-10">
+                <h2 className="text-lg font-semibold mb-2 text-gray-800">
+                  كلمة المرور المقترحة
+                </h2>
+                <div className="mt-4 flex text-center justify-between">
+                  <p className="text-gray-600">{sugestedPassword}</p>
+                  <div>
+                    <button
+                      className=" bg-blue-500 text-white py-1 rounded text-[10px] px-2"
+                      onClick={() => setInputValue(sugestedPassword)}
+                    >
+                      استخدم
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
+
         <div>
           <CheckList value={inputValue} />
         </div>
@@ -67,7 +89,6 @@ const HomePage = () => {
       </div>
       {inputValue ? <TimeCheck value={inputValue} /> : ""}
       {/* <ApiChecker value={inputValue} /> */}
-      {inputValue ? <FileSearch value={inputValue} /> : ""}
     </div>
   );
 };
