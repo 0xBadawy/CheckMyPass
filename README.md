@@ -12,8 +12,8 @@ This project is a **Password Strength Analyzer** designed to evaluate the streng
 <div style="display: flex; justify-content: space-around; align-items: center;">
 <br/>
 
-  <img src="src/assets/iPhone-14-Plus-localhost.png" alt="iPhone 14 Plus Preview" style="width: 50%;">
-  <img src="src/assets/iPhone-14-Plus-localhost%20(1).png" alt="iPhone 14 Plus Alternative Preview" style="width: 50%;">
+  <img src="src/assets/iPhone-14-Plus-localhost.png" alt="iPhone 14 Plus Preview" style="width: 45%;">
+  <img src="src/assets/iPhone-14-Plus-localhost%20(1).png" alt="iPhone 14 Plus Alternative Preview" style="width: 45%;">
 </div>
 
 
