@@ -1,7 +1,8 @@
 <div align="center">
-    <img height="100" src="./src/assets/5582931.png"><a>
-<h1 style="Font-size:50px;Font-wight:100" > Password Strength Analyzer</h1>
 <a href="https://checkmypass-2a096.web.app/">
+    <img height="100" src="./src/assets/5582931.png">
+<a>
+<h1 style="Font-size:50px;Font-wight:100" > Password Strength Analyzer</h1>
     <br>
 </div>
 
