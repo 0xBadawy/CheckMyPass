@@ -35,6 +35,48 @@ This project is a **Password Strength Analyzer** designed to evaluate the streng
   - Strong
 - **Recommendations**: Offers actionable suggestions for creating a stronger password, such as increasing length or adding special characters.
 
+
+
+## Formula Used:
+
+### $$\[ H = \log_2 \left( N^L \right) \]$$
+
+Where:
+- \( N \) is the number of possible characters used (e.g., 26 for lowercase letters, 52 for uppercase + lowercase, 62 for letters and numbers).
+- \( L \) is the password length.
+
+## Example:
+
+For a password of length 8 using letters and numbers (62 possibilities):
+
+$$\[ H = \log_2 (62^8) \approx 47.9 \text{ bits of entropy} \]$$
+
+## Interpretation:
+
+- **Higher entropy** implies greater password strength, making it more resistant to brute-force attacks.
+- Entropy is measured in bits, with each additional bit doubling the number of guesses required.
+
+## Practical Notes:
+
+1. **Character Set Size (\( N \))**:
+   - Lowercase letters only: 26
+   - Uppercase + lowercase letters: 52
+   - Letters + numbers: 62
+   - Letters, numbers, and special characters: Typically 94 (depending on the allowed special characters).
+
+2. **Password Length (\( L \))**:
+   - Increasing \( L \) has a significant impact on entropy due to exponential growth.
+   - A longer password with a smaller character set can often be stronger than a shorter password with a larger character set.
+
+## Key Takeaway:
+
+To maximize password security, aim for a combination of a large character set and sufficient length to achieve high entropy.
+
+
+
+
+
+
 ## Technologies Used
 
 - **Frontend**:
